@@ -1,2 +1,0 @@
-# PolymerCourse
-Created with CodeSandbox

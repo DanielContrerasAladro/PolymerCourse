@@ -4,14 +4,48 @@ import "@polymer/paper-checkbox/paper-checkbox.js";
 class MyElement extends LitElement {
   static get properties() {
     return {
-      feeling: String
+      feeling: String,
+      mood: String
     };
   }
 
-  _render({ feeling }) {
+  _didRender() {
+    console.log("did");
+  }
+
+  _firstRendered() {
+    console.log("first");
+    this.addEventListener("hello", () => {
+      console.log("Hello");
+    });
+  }
+
+  sayHi() {
+    console.log("Hi");
+    this.dispatchEvent(
+      new CustomEvent("hello", { bubbles: true, composed: true })
+    );
+  }
+
+  _render({ feeling, mood }) {
     return html`
-      <h1>${feeling}</h1>
-      <paper-checkbox>READY</papar-checkbox>
+    <style>
+      div {
+        background-color: grey;
+      }
+      :host {
+        color: black;
+      }
+    </style>
+    <h1>${feeling}</h1>
+    <div>
+    WebComponents<br>
+      <span class="mood">${mood}</span>!<br>
+      <slot name="children"></slot><br>
+      <paper-checkbox>READY</papar-checkbox><br>
+      <slot name="footer"></slot><br>
+    </div>
+    <button on-click="${this.sayHi}">Hi</button>
     `;
   }
 }

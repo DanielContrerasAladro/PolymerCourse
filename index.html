@@ -1,16 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Parcel Sandbox</title>
-    <meta charset="UTF-8" />
 
-    <script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
-    <script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js"></script>
-  </head>
+<head>
+	<title>Parcel Sandbox</title>
+	<meta charset="UTF-8" />
 
-  <body>
-    <my-element feeling="AWESOME"></my-element>
-  </body>
+	<script src="./node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js">
 
-  <script type="module" src="src/index.js"></script>
+	</script>
+	<script src="./node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js">
+
+	</script>
+	<style>
+		div {
+			color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<my-element feeling="AWESOME" mood="HAPPY">
+		<span slot="children">GREAT</span>
+    <span slot="footer">END</span>
+  </my-element>
+</body>
+
+<script type="module" src="src/index.js"></script>
+
 </html>
